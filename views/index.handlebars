@@ -1,42 +1,46 @@
-<img class="img-responsive icon" src="\assets\img\burger1.png" alt = "burger1">
-
-<h1>Eat Da Burger</h1>
-
-<h2>Uneaten burgers</h2>
-
-<ul>
-  {{#each burgers}}
-  {{#unless devoured}}
-  <li>
-{{burger_name}}
-<button class="devoured" data-id="{{this.id}}" data-newdevour="{{devoured}}">Devour!</button>
-  </li>
-
-  {{/unless}}
-  {{/each}}
-</ul>
-
-<h2>Eaten burgers!</h2>
-
-<ul>
-  {{#each burgers}}
-  {{#if devoured}}
-    <li>
-{{burger_name}}
-  </li>
-  {{/if}}
-  {{/each}}
-</ul>
-
-<h2>Add a Burger</h2>
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="burg" name="name">
+<div class="container">
+  <div class="row header text-center" id = "header">
+    <ul>
+    <h1>Eat Da Burger</h1>
+    <img class="img-responsive icon" src="\assets\img\burger1.png" alt="burger1" id="bigBurger">
+    </ul>
   </div>
+  <div class="row">
+    <div class="col-sm">
+      <h2>Burgers To Be Eaten!</h2>
 
+      <ul>
+        {{#each burgers}}
+        {{#unless devoured}}
+        <li>
+          {{burger_name}}
+          <button class="devoured" data-id="{{this.id}}" data-newdevour="{{devoured}}">Devour!</button>
+        </li>
 
+        {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-sm">
+      <h2>Burgers You Already Ate!</h2>
 
-  <button type="submit">Add Burger</button>
-</form>
+      <ul>
+        {{#each burgers}}
+        {{#if devoured}}
+        <li>
+          {{burger_name}}
+        </li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <h2 class = "add">Add a Burger</h2>
+  <form class="create-form">
+    <div class="form-group">
+      <label for="ca">Burger Name:</label>
+      <input type="text" id="burg" name="name">
+    </div>
+    <button type="submit" id = "addBurger">Add Burger</button>
+  </form>
+</div>
